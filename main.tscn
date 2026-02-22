@@ -12,7 +12,6 @@ mob_scene = ExtResource("2_0xm2m")
 [node name="MobList" type="Node2D" parent="." unique_id=1592614806]
 
 [node name="PlayerSpawner" type="MultiplayerSpawner" parent="." unique_id=107871672]
-_spawnable_scenes = PackedStringArray("uid://duou2v7wsl4vj")
 spawn_path = NodePath("../PlayerList")
 
 [node name="MobSpawner" type="MultiplayerSpawner" parent="." unique_id=46771617]
@@ -42,6 +41,17 @@ offset_top = 5.0
 offset_right = 696.0
 offset_bottom = 36.0
 text = "Disconnect"
+
+[node name="OptionButton" type="OptionButton" parent="CanvasLayer" unique_id=1334656062]
+offset_left = 8.0
+offset_top = 42.0
+offset_right = 89.0
+offset_bottom = 73.0
+item_count = 2
+popup/item_0/text = "Bow"
+popup/item_0/id = 0
+popup/item_1/text = "Sword"
+popup/item_1/id = 1
 
 [connection signal="pressed" from="CanvasLayer/HostButton" to="." method="_on_host_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/JoinButton" to="." method="_on_join_button_pressed"]

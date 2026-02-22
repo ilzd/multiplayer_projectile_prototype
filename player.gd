@@ -2,10 +2,14 @@ extends CharacterBody2D
 
 @export var health := 100.0
 const SPEED := 300.0
+var current_weapon = "Bow"
 var arrow_scene = preload("res://arrow.tscn")
 
 func _ready():
 	reset()
+	if has_meta("starting_weapon"):
+		current_weapon = get_meta("starting_weapon")
+		print("Player ", name, " spawneg with ", current_weapon)
 
 
 func _enter_tree() -> void:
@@ -19,12 +23,12 @@ func reset():
 	position.y = randi_range(50, viewport_size.y - 50)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if has_node("HealthBar"):
 		$HealthBar.value = health
 		$HealthBar.rotation = -global_rotation
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if not is_multiplayer_authority():
 		return
 	
@@ -35,7 +39,10 @@ func _physics_process(delta: float) -> void:
 	look_at(get_global_mouse_position())
 	
 	if Input.is_action_just_pressed("attack"):
-		shoot_arrow.rpc(global_position, rotation, multiplayer.get_unique_id())
+		if current_weapon == "Bow":
+			shoot_arrow.rpc(global_position, rotation, multiplayer.get_unique_id())
+		elif current_weapon == "Sword":
+			swing_sword()
 
 @rpc("any_peer", "call_local")
 func shoot_arrow(spawn_position, spawn_rotation, shooter_id):
@@ -45,6 +52,22 @@ func shoot_arrow(spawn_position, spawn_rotation, shooter_id):
 	arrow.shooter_id = shooter_id
 	get_tree().current_scene.add_child(arrow)
 
+func swing_sword():
+	show_sword_slash.rpc()
+	var hit_targets = $MeleeHitbox.get_overlapping_bodies() as Array[Node2D]
+	for target in hit_targets:
+		if target == self:
+			continue
+		if target.is_in_group("mobs") or target.is_in_group("players"):
+			var authority_id = target.get_multiplayer_authority()
+			target.take_damage.rpc_id(authority_id, 20)
+
+
+@rpc("any_peer", "call_local")
+func show_sword_slash():
+	$MeleeVisual.show()
+	await get_tree().create_timer(0.1).timeout
+	$MeleeVisual.hide()
 
 @rpc("any_peer")
 func take_damage(amount: int):

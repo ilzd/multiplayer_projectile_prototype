@@ -12,6 +12,9 @@ properties/0/replication_mode = 1
 properties/1/path = NodePath(".:health")
 properties/1/spawn = true
 properties/1/replication_mode = 1
+properties/2/path = NodePath("ColorRect:color")
+properties/2/spawn = true
+properties/2/replication_mode = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dy6sc"]
 bg_color = Color(0.84705883, 0, 0, 1)
@@ -25,7 +28,7 @@ offset_left = -20.0
 offset_top = -20.0
 offset_right = 20.0
 offset_bottom = 20.0
-color = Color(1, 0.3254902, 0.11372549, 1)
+color = Color(1, 0.3764706, 0.15686275, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=868913482]
 shape = SubResource("RectangleShape2D_jfba5")

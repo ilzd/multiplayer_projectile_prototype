@@ -22,6 +22,9 @@ properties/3/replication_mode = 1
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4flbx"]
 bg_color = Color(0.84705883, 0, 0, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4flbx"]
+size = Vector2(75, 30)
+
 [node name="Player" type="CharacterBody2D" unique_id=1232592362 groups=["players"]]
 motion_mode = 1
 script = ExtResource("1_4flbx")
@@ -54,3 +57,17 @@ size_flags_horizontal = 4
 theme_override_styles/fill = SubResource("StyleBoxFlat_4flbx")
 value = 50.0
 show_percentage = false
+
+[node name="MeleeVisual" type="ColorRect" parent="." unique_id=1427150965]
+visible = false
+offset_left = 20.0
+offset_top = -15.0
+offset_right = 95.0
+offset_bottom = 15.0
+color = Color(1, 0, 0, 1)
+
+[node name="MeleeHitbox" type="Area2D" parent="." unique_id=1159058517]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeHitbox" unique_id=62261787]
+position = Vector2(57.5, 0)
+shape = SubResource("RectangleShape2D_4flbx")
