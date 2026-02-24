@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cqmx0tvyrxoq0"]
+
+[ext_resource type="Script" uid="uid://dbwb51kkwwmgc" path="res://player.gd" id="1_4flbx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sh265"]
+size = Vector2(40, 40)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_4flbx"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:health")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath("ColorRect:color")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4flbx"]
+size = Vector2(70, 20)
+
+[node name="Player" type="CharacterBody2D" unique_id=1530965342 groups=["players"]]
+script = ExtResource("1_4flbx")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1908777285]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=251054589]
+shape = SubResource("RectangleShape2D_sh265")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1507150012]
+replication_config = SubResource("SceneReplicationConfig_4flbx")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1164587340]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1562524319]
+position = Vector2(60, 0)
+shape = SubResource("RectangleShape2D_4flbx")

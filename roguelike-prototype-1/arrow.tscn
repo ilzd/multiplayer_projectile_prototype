@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://coerpn0s4nghf"]
+
+[ext_resource type="Script" uid="uid://bchm48ivobhtb" path="res://arrow.gd" id="1_arrow"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_arrow"]
+radius = 6.0
+
+[node name="Arrow" type="Area2D" unique_id=1401875381]
+script = ExtResource("1_arrow")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1000915985]
+shape = SubResource("CircleShape2D_arrow")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1392294713]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(317, -82)

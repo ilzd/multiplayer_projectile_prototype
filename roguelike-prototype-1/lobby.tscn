@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://cesxxim2h8yg1"]
+
+[ext_resource type="Script" uid="uid://dif0x4k7qykws" path="res://lobby.gd" id="1_ll2xe"]
+
+[node name="Lobby" type="Control" unique_id=521400279]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ll2xe")
+
+[node name="MenuBox" type="VBoxContainer" parent="." unique_id=1126314655]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 216.0
+offset_right = 206.0
+offset_bottom = 317.0
+
+[node name="NameInput" type="LineEdit" parent="MenuBox" unique_id=40124179]
+layout_mode = 2
+placeholder_text = "Nickname"
+
+[node name="IPInput" type="LineEdit" parent="MenuBox" unique_id=1425839623]
+layout_mode = 2
+placeholder_text = "127.0.0.1"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuBox" unique_id=259380769]
+layout_mode = 2
+
+[node name="HostButton" type="Button" parent="MenuBox/HBoxContainer" unique_id=1654466431]
+layout_mode = 2
+text = "Host Server"
+
+[node name="JoinButton" type="Button" parent="MenuBox/HBoxContainer" unique_id=1446545177]
+layout_mode = 2
+text = "Join"
+
+[node name="ListBox" type="VBoxContainer" parent="." unique_id=203575017]
+layout_mode = 0
+offset_left = 302.0
+offset_top = 161.0
+offset_right = 513.0
+offset_bottom = 392.0
+
+[node name="Label" type="Label" parent="ListBox" unique_id=1763856312]
+layout_mode = 2
+text = "Players:"
+
+[node name="PlayerList" type="ItemList" parent="ListBox" unique_id=1755472386]
+layout_mode = 2
+auto_height = true
+
+[node name="StartButton" type="Button" parent="ListBox" unique_id=1473632389]
+visible = false
+layout_mode = 2
+text = "Start"
+
+[connection signal="pressed" from="MenuBox/HBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="MenuBox/HBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
+[connection signal="pressed" from="ListBox/StartButton" to="." method="_on_start_button_pressed"]

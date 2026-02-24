@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://cs65yg6rcaak3"]
+
+[ext_resource type="Script" uid="uid://dq7uky4xtdi06" path="res://lobby_ui.gd" id="1_riqbw"]
+
+[node name="LobbyUI" type="Control" unique_id=2140596655]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_riqbw")
+
+[node name="TextEdit" type="TextEdit" parent="." unique_id=1533111110]
+layout_mode = 1
+offset_left = 11.0
+offset_top = 11.0
+offset_right = 142.0
+offset_bottom = 53.0
+text = "Player"
+
+[node name="HostButton" type="Button" parent="." unique_id=1500359410]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 65.0
+offset_right = 57.0
+offset_bottom = 96.0
+text = "Host"
+
+[node name="JoinButton" type="Button" parent="." unique_id=260608176]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 65.0
+offset_right = 109.0
+offset_bottom = 96.0
+text = "Join
+"
+
+[node name="StartButton" type="Button" parent="." unique_id=680939937]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 106.0
+offset_right = 60.0
+offset_bottom = 137.0
+text = "Start
+"
+
+[node name="PlayerList" type="VBoxContainer" parent="." unique_id=634732155]
+layout_mode = 0
+offset_left = 317.0
+offset_top = 16.0
+offset_right = 583.0
+offset_bottom = 353.0
+
+[connection signal="pressed" from="HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="JoinButton" to="." method="_on_join_button_pressed"]
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

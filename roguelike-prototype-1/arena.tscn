@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cb82abh8t4tvc"]
+
+[ext_resource type="Script" uid="uid://b2x25rtwkqiiw" path="res://arena.gd" id="1_444vf"]
+[ext_resource type="PackedScene" uid="uid://drsnri0l4i8wy" path="res://player.tscn" id="2_27ga2"]
+
+[node name="Arena" type="Node2D" unique_id=1300720974]
+script = ExtResource("1_444vf")
+player_scene = ExtResource("2_27ga2")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2135193408]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 600.0
+offset_bottom = 600.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+color = Color(0, 0.18431373, 0, 1)
+
+[node name="Players" type="Node2D" parent="." unique_id=779301629]
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=478615929]
+_spawnable_scenes = PackedStringArray("uid://drsnri0l4i8wy")
+spawn_path = NodePath("../Players")

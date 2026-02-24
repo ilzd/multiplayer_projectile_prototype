@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://d2r0etymu4080"]
+
+[ext_resource type="Script" uid="uid://0evsiw0sjhl6" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://cqmx0tvyrxoq0" path="res://player.tscn" id="2_0xm2m"]
+
+[node name="Main" type="Node2D" unique_id=1752135005]
+script = ExtResource("1_ig7tw")
+player_scene = ExtResource("2_0xm2m")
+
+[node name="PlayerList" type="Node2D" parent="." unique_id=1829738377]
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1589085870]
+_spawnable_scenes = PackedStringArray("uid://cqmx0tvyrxoq0")
+spawn_path = NodePath("../PlayerList")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=452051506]
+
+[node name="HostButton" type="Button" parent="CanvasLayer" unique_id=551582774]
+offset_left = 23.0
+offset_top = 25.0
+offset_right = 67.0
+offset_bottom = 56.0
+text = "Host"
+
+[node name="JoinButton" type="Button" parent="CanvasLayer" unique_id=641555593]
+offset_left = 91.0
+offset_top = 24.0
+offset_right = 129.0
+offset_bottom = 55.0
+text = "Join"
+
+[node name="DisconnectButton" type="Button" parent="CanvasLayer" unique_id=199095752]
+visible = false
+offset_right = 94.0
+offset_bottom = 31.0
+text = "Disconnect
+"
