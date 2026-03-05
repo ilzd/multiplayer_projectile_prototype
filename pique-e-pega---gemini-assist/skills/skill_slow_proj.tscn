@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dmckw6nkqjm2s"]
+
+[ext_resource type="Script" uid="uid://dfyetmc4dq8q4" path="res://skills/skill_slow_proj.gd" id="1_2magu"]
+
+[node name="SkillSlowProj" type="Node2D" unique_id=695132402]
+script = ExtResource("1_2magu")

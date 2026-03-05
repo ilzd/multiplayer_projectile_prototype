@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://c53fqki7niuh5"]
+
+[ext_resource type="Script" uid="uid://bve8mo03a7r2u" path="res://main.gd" id="1_ig7tw"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ig7tw"]
+vertices = PackedVector2Array(310, 630, 670, 670, 30, 670, 230, 630, 670, 30, 590, 370, 590, 110, 350, 200, 460, 250, 200, 250, 90, 200, 30, 30, 510, 110, 510, 370, 460, 330, 310, 370, 200, 330, 230, 370, 350, 120, 90, 120)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 1, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(11, 4, 6, 12), PackedInt32Array(12, 13, 14, 8), PackedInt32Array(5, 1, 0, 13), PackedInt32Array(13, 0, 15, 14), PackedInt32Array(16, 14, 15, 17), PackedInt32Array(3, 2, 11, 10), PackedInt32Array(12, 8, 7, 18), PackedInt32Array(11, 12, 18, 19), PackedInt32Array(10, 9, 16), PackedInt32Array(16, 17, 3, 10), PackedInt32Array(11, 19, 10)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, 0, 700, 0, 700, 700, 0, 700)])
+agent_radius = 30.0
+
+[sub_resource type="Gradient" id="Gradient_ig7tw"]
+colors = PackedColorArray(0.0885599, 0.0885599, 0.0885599, 1, 0.09019608, 0.09019608, 0.09019608, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0xm2m"]
+gradient = SubResource("Gradient_ig7tw")
+width = 200
+height = 20
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
+size = Vector2(200, 20)
+
+[node name="Main" type="Node2D" unique_id=1385929580 node_paths=PackedStringArray("ui")]
+script = ExtResource("1_ig7tw")
+ui = NodePath("UI")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1294913776]
+
+[node name="HostButton" type="Button" parent="UI" unique_id=503513666]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Host"
+
+[node name="JoinButton" type="Button" parent="UI" unique_id=1673588380]
+offset_left = 48.0
+offset_right = 86.0
+offset_bottom = 31.0
+text = "Join"
+
+[node name="Players" type="Node2D" parent="." unique_id=1855704495]
+
+[node name="PlayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1493472492]
+spawn_path = NodePath(".")
+
+[node name="Loot" type="Node2D" parent="." unique_id=826650198]
+
+[node name="LootSpawner" type="MultiplayerSpawner" parent="." unique_id=288108639]
+spawn_path = NodePath("../Loot")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=549023222]
+navigation_polygon = SubResource("NavigationPolygon_ig7tw")
+
+[node name="Obstacle" type="StaticBody2D" parent="NavigationRegion2D" unique_id=1630923996]
+position = Vector2(220, 160)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="NavigationRegion2D/Obstacle" unique_id=436047908]
+texture = SubResource("GradientTexture2D_0xm2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/Obstacle" unique_id=817308648]
+shape = SubResource("RectangleShape2D_h2yge")
+
+[node name="Obstacle2" type="StaticBody2D" parent="NavigationRegion2D" unique_id=1445968324]
+position = Vector2(330, 290)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="NavigationRegion2D/Obstacle2" unique_id=2055672494]
+texture = SubResource("GradientTexture2D_0xm2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/Obstacle2" unique_id=949373536]
+shape = SubResource("RectangleShape2D_h2yge")
+
+[node name="Obstacle3" type="StaticBody2D" parent="NavigationRegion2D" unique_id=1950030471]
+position = Vector2(550, 240)
+rotation = 1.5707964
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="NavigationRegion2D/Obstacle3" unique_id=963716742]
+texture = SubResource("GradientTexture2D_0xm2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/Obstacle3" unique_id=1682027453]
+shape = SubResource("RectangleShape2D_h2yge")
+
+[node name="Obstacle4" type="StaticBody2D" parent="NavigationRegion2D" unique_id=1145043903]
+position = Vector2(270, 500)
+rotation = 1.5707964
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="NavigationRegion2D/Obstacle4" unique_id=1701665853]
+texture = SubResource("GradientTexture2D_0xm2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/Obstacle4" unique_id=1172770788]
+shape = SubResource("RectangleShape2D_h2yge")
+
+[connection signal="pressed" from="UI/HostButton" to="." method="_host"]
+[connection signal="pressed" from="UI/JoinButton" to="." method="_join"]

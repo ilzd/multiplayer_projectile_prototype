@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dyb2ewwdeu82f"]
+
+[ext_resource type="Script" uid="uid://cvflnk4fhqh6q" path="res://loot_item.gd" id="1_fefu5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_twi54"]
+
+[node name="LootItem" type="Area2D" unique_id=1394736652]
+script = ExtResource("1_fefu5")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=376368383]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(10, 10)
+mouse_filter = 2
+color = Color(0, 1, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1320236865]
+shape = SubResource("RectangleShape2D_twi54")

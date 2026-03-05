@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://blybbqembhu6f"]
+
+[ext_resource type="Script" uid="uid://7pnutqpimccf" path="res://apple.gd" id="1_3ed3y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n78qv"]
+size = Vector2(30, 30)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_whgpf"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="Apple" type="Area2D" unique_id=1303806617 groups=["items"]]
+script = ExtResource("1_3ed3y")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=393898843]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(15, 15)
+color = Color(1, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1931299119]
+shape = SubResource("RectangleShape2D_n78qv")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=812341829]
+replication_config = SubResource("SceneReplicationConfig_whgpf")

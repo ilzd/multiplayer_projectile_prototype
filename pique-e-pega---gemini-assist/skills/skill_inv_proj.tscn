@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://df4sq1cpg0bcp"]
+
+[ext_resource type="Script" uid="uid://dljmo85a8fw1h" path="res://skills/skill_inv_proj.gd" id="1_rkmxt"]
+
+[node name="SkillInvProj" type="Node2D" unique_id=1776056680]
+script = ExtResource("1_rkmxt")

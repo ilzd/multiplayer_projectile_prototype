@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c1nlprkk3p0vl"]
+
+[ext_resource type="Script" uid="uid://bx0r7h3fvkn18" path="res://skills/skill_dash.gd" id="1_ws1yf"]
+
+[node name="SkillDash" type="Node2D" unique_id=775992386]
+script = ExtResource("1_ws1yf")

@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://b45ifsaujt413"]
+
+[ext_resource type="Script" uid="uid://cwoht2mukxdle" path="res://main.gd" id="1_ig7tw"]
+
+[node name="Main" type="Node2D" unique_id=2050692422]
+script = ExtResource("1_ig7tw")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=839281766]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1161.0
+offset_bottom = 657.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+color = Color(0.10747976, 0.10747973, 0.10747973, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1606529271]
+
+[node name="NetworkUI" type="HBoxContainer" parent="CanvasLayer" unique_id=796337621]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HostButton" type="Button" parent="CanvasLayer/NetworkUI" unique_id=753860828]
+layout_mode = 2
+text = "Host"
+
+[node name="JoinButton" type="Button" parent="CanvasLayer/NetworkUI" unique_id=2121821970]
+layout_mode = 2
+text = "Join"
+
+[node name="LinesContainer" type="Node2D" parent="." unique_id=768603481]
+
+[connection signal="pressed" from="CanvasLayer/NetworkUI/HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/NetworkUI/JoinButton" to="." method="_on_join_button_pressed"]

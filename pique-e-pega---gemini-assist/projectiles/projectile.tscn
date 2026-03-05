@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://c4mwx68ja4l2n"]
+
+[ext_resource type="Script" uid="uid://b7ibcy1fjpnms" path="res://projectiles/projectile.gd" id="1_wrf7x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kixk3"]
+size = Vector2(14, 14)
+
+[node name="Projectile" type="Area2D" unique_id=1894893347]
+script = ExtResource("1_wrf7x")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=619832324]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.0
+offset_top = -7.0
+offset_right = 7.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(7, 7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=599849596]
+shape = SubResource("RectangleShape2D_kixk3")

@@ -1,0 +1,110 @@
+[gd_scene format=3 uid="uid://c75bqunafho2n"]
+
+[ext_resource type="Script" uid="uid://dhbwavm6t8p7" path="res://main.gd" id="1_ig7tw"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ig7tw"]
+vertices = PackedVector2Array(589.9219, 259.6875, 446.1797, 268.4297, 303.5625, 232.9375, 208.5, 124.78906, 752.84375, -18.21875, 715.1094, 713.78125, 593.8203, 323.5703, 450.07813, 332.3125, 424, 480, 424, 416, -34, 706.21875, 280, 480, 255.5, 275.21094, 280, 416, -34, -25.78125, 160.4375, 167.0625)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 0), PackedInt32Array(7, 6, 5, 8, 9), PackedInt32Array(8, 5, 10, 11), PackedInt32Array(12, 13, 11, 10, 14, 15), PackedInt32Array(14, 4, 0, 3), PackedInt32Array(7, 9, 13, 12, 2, 1), PackedInt32Array(3, 15, 14)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-56, -48, 776, -40, 736, 736, -56, 728)])
+agent_radius = 22.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
+size = Vector2(100, 20)
+
+[node name="Main" type="Node2D" unique_id=1852865041]
+script = ExtResource("1_ig7tw")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1296039817]
+
+[node name="JoinButton" type="Button" parent="CanvasLayer" unique_id=1817943417]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Join"
+
+[node name="HostButton" type="Button" parent="CanvasLayer" unique_id=2033163392]
+offset_left = 43.0
+offset_top = 1.0
+offset_right = 87.0
+offset_bottom = 32.0
+text = "Host"
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1354818685]
+navigation_polygon = SubResource("NavigationPolygon_ig7tw")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="NavigationRegion2D" unique_id=2066925775]
+position = Vector2(352, 448)
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="NavigationRegion2D/StaticBody2D" unique_id=1486172021]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -10.0
+offset_right = 50.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(50, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D" unique_id=1658868787]
+shape = SubResource("RectangleShape2D_ig7tw")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="NavigationRegion2D" unique_id=1890474971]
+position = Vector2(232, 200)
+rotation = 0.8496148
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="NavigationRegion2D/StaticBody2D2" unique_id=929873100]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -10.0
+offset_right = 50.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(50, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D2" unique_id=1791316734]
+shape = SubResource("RectangleShape2D_ig7tw")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="NavigationRegion2D" unique_id=1285257138]
+position = Vector2(520, 296.00003)
+rotation = -0.060801268
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="NavigationRegion2D/StaticBody2D3" unique_id=267874313]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -10.0
+offset_right = 50.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(50, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D3" unique_id=883025861]
+shape = SubResource("RectangleShape2D_ig7tw")
+
+[node name="Players" type="Node2D" parent="." unique_id=2111772862]
+
+[node name="PlayerSpawner" type="MultiplayerSpawner" parent="Players" unique_id=560580477]
+spawn_path = NodePath("..")
+
+[node name="LootContainer" type="Node2D" parent="." unique_id=1658122213]
+
+[node name="LootSpawner" type="MultiplayerSpawner" parent="LootContainer" unique_id=1304200420]
+spawn_path = NodePath("..")
+
+[connection signal="pressed" from="CanvasLayer/JoinButton" to="." method="_on_join_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/HostButton" to="." method="_on_host_button_pressed"]

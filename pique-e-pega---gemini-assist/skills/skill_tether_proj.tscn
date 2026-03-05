@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cu1dalcivhlqm"]
+
+[ext_resource type="Script" uid="uid://b8l5b1o61latd" path="res://skills/skill_tether_proj.gd" id="1_pamlh"]
+
+[node name="SkillTetherProj" type="Node2D" unique_id=768564761]
+script = ExtResource("1_pamlh")

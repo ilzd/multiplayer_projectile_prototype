@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dc2h6fgqntbrt"]
+
+[ext_resource type="Script" uid="uid://brlmknjtmncev" path="res://skills/skill_aoe_stun.gd" id="1_117nh"]
+
+[node name="SkillAoEStun" type="Node2D" unique_id=697426396]
+script = ExtResource("1_117nh")

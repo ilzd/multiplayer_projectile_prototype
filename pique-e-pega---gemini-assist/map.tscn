@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://br1v30g2yld25"]
+
+[ext_resource type="Script" uid="uid://beglmx6p400q2" path="res://map.gd" id="1_c7s6e"]
+
+[node name="Map" type="Node2D" unique_id=1202766432]
+script = ExtResource("1_c7s6e")
+
+[node name="Players" type="Node2D" parent="." unique_id=1147848869]
+
+[node name="PlayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1564760030]
+spawn_path = NodePath("../Players")
+
+[node name="MatchTimer" type="Timer" parent="." unique_id=1295838239]
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1730060381]
+
+[node name="TimeLabel" type="Label" parent="HUD" unique_id=512842268]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+
+[node name="StatusLabel" type="Label" parent="HUD" unique_id=468614046]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 43.0
+offset_right = 20.0
+offset_bottom = 66.0
+grow_horizontal = 2
+
+[node name="ScoresLabel" type="Label" parent="HUD" unique_id=1020807411]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+
+[node name="Projectiles" type="Node2D" parent="." unique_id=2058779364]
+
+[node name="ProjectileSpawner" type="MultiplayerSpawner" parent="." unique_id=1750793916]
+spawn_path = NodePath("../Projectiles")

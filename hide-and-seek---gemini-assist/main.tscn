@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://ca6xxirpwcuhc"]
+
+[ext_resource type="Script" uid="uid://bh7cgpuf6uyxf" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://cootuqvur6jeu" path="res://player.tscn" id="2_0xm2m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
+size = Vector2(400, 30)
+
+[node name="Main" type="Node2D" unique_id=1384987307]
+script = ExtResource("1_ig7tw")
+player_scene = ExtResource("2_0xm2m")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=749025216]
+offset_right = 1100.0
+offset_bottom = 650.0
+color = Color(0.14767194, 0.14767179, 0.1476717, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1708843151]
+
+[node name="HostButton" type="Button" parent="CanvasLayer" unique_id=1450422303]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Host"
+
+[node name="JoinButton" type="Button" parent="CanvasLayer" unique_id=1528698226]
+offset_left = 49.0
+offset_right = 87.0
+offset_bottom = 31.0
+text = "Join"
+
+[node name="Players" type="Node2D" parent="." unique_id=1336747909]
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1780821986]
+_spawnable_scenes = PackedStringArray("uid://cootuqvur6jeu")
+spawn_path = NodePath("../Players")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=863141065]
+position = Vector2(547, 293)
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=323755956]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -15.0
+offset_right = 200.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(200, 15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=418334059]
+shape = SubResource("RectangleShape2D_0xm2m")
+
+[connection signal="pressed" from="CanvasLayer/HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/JoinButton" to="." method="_on_join_button_pressed"]

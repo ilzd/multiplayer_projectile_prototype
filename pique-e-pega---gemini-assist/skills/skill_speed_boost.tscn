@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dghcm7mq0pfol"]
+
+[ext_resource type="Script" uid="uid://3ouxfic1bx8t" path="res://skills/skill_speed_boost.gd" id="1_43dj6"]
+
+[node name="SkillSpeedBoost" type="Node2D" unique_id=1663364461]
+script = ExtResource("1_43dj6")

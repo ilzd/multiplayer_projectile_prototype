@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://byn6qedl1vfj5"]
+
+[ext_resource type="Script" uid="uid://dtqvkjx25sxnr" path="res://main.gd" id="1_ig7tw"]
+
+[node name="Main" type="Control" unique_id=1666509239]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ig7tw")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=219831224]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1811273364]
+layout_mode = 2
+
+[node name="NetworkUI" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=637503401]
+layout_mode = 2
+
+[node name="HostButton" type="Button" parent="CenterContainer/VBoxContainer/NetworkUI" unique_id=791670735]
+layout_mode = 2
+text = "Host"
+
+[node name="JoinButton" type="Button" parent="CenterContainer/VBoxContainer/NetworkUI" unique_id=720902278]
+layout_mode = 2
+text = "Join"
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/NetworkUI" unique_id=566458982]
+layout_mode = 2
+text = "Address"
+
+[node name="AddressEdit" type="LineEdit" parent="CenterContainer/VBoxContainer/NetworkUI" unique_id=175073542]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "127.0.0.1"
+placeholder_text = "127.0.0.1"
+
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer/NetworkUI" unique_id=296876192]
+layout_mode = 2
+text = "Port"
+
+[node name="PortEdit" type="LineEdit" parent="CenterContainer/VBoxContainer/NetworkUI" unique_id=1287773289]
+layout_mode = 2
+text = "8910"
+placeholder_text = "8910"
+
+[node name="StatusLabel" type="Label" parent="CenterContainer/VBoxContainer" unique_id=432545547]
+layout_mode = 2
+text = "Create or join a geme session..."
+
+[node name="AreaGrid" type="GridContainer" parent="CenterContainer/VBoxContainer" unique_id=343368333]
+layout_mode = 2
+columns = 3
+
+[node name="AreaButton0" type="Button" parent="CenterContainer/VBoxContainer/AreaGrid" unique_id=576488488]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_font_sizes/font_size = 84
+
+[node name="AreaButton1" type="Button" parent="CenterContainer/VBoxContainer/AreaGrid" unique_id=1776901379]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_font_sizes/font_size = 84
+
+[node name="AreaButton2" type="Button" parent="CenterContainer/VBoxContainer/AreaGrid" unique_id=514008508]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_font_sizes/font_size = 84
+
+[node name="AreaButton3" type="Button" parent="CenterContainer/VBoxContainer/AreaGrid" unique_id=1643167087]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_font_sizes/font_size = 84
+
+[node name="AreaButton4" type="Button" parent="CenterContainer/VBoxContainer/AreaGrid" unique_id=362314699]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_font_sizes/font_size = 84
+
+[node name="AreaButton5" type="Button" parent="CenterContainer/VBoxContainer/AreaGrid" unique_id=1092988064]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_font_sizes/font_size = 84
+
+[node name="AreaButton6" type="Button" parent="CenterContainer/VBoxContainer/AreaGrid" unique_id=1976898944]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_font_sizes/font_size = 84
+
+[node name="AreaButton7" type="Button" parent="CenterContainer/VBoxContainer/AreaGrid" unique_id=1867045839]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_font_sizes/font_size = 84
+
+[node name="AreaButton8" type="Button" parent="CenterContainer/VBoxContainer/AreaGrid" unique_id=1460184776]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_font_sizes/font_size = 84
+
+[node name="RestartButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1652069637]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Restart
+"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/NetworkUI/HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/NetworkUI/JoinButton" to="." method="_on_join_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
